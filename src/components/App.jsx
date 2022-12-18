@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from 'path/to/pages/Home';
-import About from 'path/to/pages/About';
-import Products from 'path/to/pages/Products';
+import {Layout} from "./Layout/Layout"
+import {Home} from '../pages/Home';
+import {Movies} from '../pages/Movies';
 
 export const App = () => {
   return (
@@ -16,9 +16,10 @@ export const App = () => {
       }}
     >
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/products" element={<Products />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="movies" element={<Movies />} />
+        </Route>
       </Routes>
     </div>
   );
