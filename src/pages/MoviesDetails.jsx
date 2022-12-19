@@ -5,17 +5,16 @@ import { useState, useEffect } from 'react';
 
 export const MoviesDetails = () => {
   const { id } = useParams();
-  const [filmByID, setfilmByID] = useState([]);
-  console.log(id);
+  const [filmByID, setfilmByID] = useState({});
   useEffect(() => {
     // ___________________________НЕ ПОНЯЛ ВОТ ЄТОГО((((((((
     if (!filmByID) {
       return;
     }
     getFilmByID(id).then(data => {
-      return setfilmByID(data.results);
+      return setfilmByID(data);
     });
-  });
+  }, []);
   console.log(filmByID);
 
   return (
@@ -23,12 +22,12 @@ export const MoviesDetails = () => {
       <button type="button">Go back</button>
       <div>
         <img src="" alt="Film poster" />
-        <h1>Film Name</h1>
-        <p>User Score: 100500%</p>
+        <h1>{filmByID.original_title}</h1>
+        <p>User Score: {filmByID.vote_average}</p>
         <h2> Overview</h2>
-        <p>Film discription.........</p>
+        <p>{filmByID.overview}</p>
         <h2>Genres</h2>
-        <p>Genres............</p>
+        {/* {filmByID.genres.map(genr=><p>genr.name</p>).join(" ")} */}
       </div>
       <div>
         <h3>Additional information</h3>

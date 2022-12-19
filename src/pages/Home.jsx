@@ -13,8 +13,8 @@ export const Home = () => {
     getPopularFilms().then(data => {
       return setFilms(data.results);
     });
-  });
-  // console.log(films);
+  },[]);
+  console.log(films);
   return (
     <main>
       <ul>
@@ -32,3 +32,38 @@ export const Home = () => {
     </main>
   );
 };
+
+
+// const { useState, useRef, useLayoutEffect } = React;
+
+// function ComponentDidUpdateFunction() {
+//   const [count, setCount] = useState(0);
+
+//   const firstUpdate = useRef(true);
+//   useLayoutEffect(() => {
+//     if (firstUpdate.current) {
+//       firstUpdate.current = false;
+//       return;
+//     }
+
+//     console.log("componentDidUpdateFunction");
+//   });
+
+//   return (
+//     <div>
+//       <p>componentDidUpdateFunction: {count} times</p>
+//       <button
+//         onClick={() => {
+//           setCount(count + 1);
+//         }}
+//       >
+//         Click Me
+//       </button>
+//     </div>
+//   );
+// }
+
+// ReactDOM.render(
+//   <ComponentDidUpdateFunction />,
+//   document.getElementById("app")
+// );
