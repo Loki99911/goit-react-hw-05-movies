@@ -1,8 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import {Layout} from "./Layout/Layout"
-import {Home} from '../pages/Home';
-import { Movies } from '../pages/Movies';
-import { MoviesDetails } from '../pages/MoviesDetails';
+import {Home} from 'pages/Home';
+import { Movies } from 'pages/Movies';
+import { MoviesDetails } from 'pages/MoviesDetails';
+import { Error404 } from 'pages/Error404';
 
 export const App = () => {
   return (
@@ -21,6 +22,7 @@ export const App = () => {
         <Route index element={<Home />} />
         <Route path="movies" element={<Movies />} />
         <Route path="movies/:id" element={<MoviesDetails />} />
+        <Route path="*" element={<Error404 />} />
       </Route>
     </Routes>
     // </div>

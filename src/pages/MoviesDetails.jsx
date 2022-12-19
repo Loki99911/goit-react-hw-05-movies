@@ -1,10 +1,11 @@
 import { useParams } from 'react-router-dom';
-// import { getProductById } from '../fakeAPI';
+import { getFilmByID } from 'service/reqestApi'
 import { Link, Outlet } from 'react-router-dom';
 
 export const MoviesDetails = () => {
   const { id } = useParams();
-  // const product = getProductById(id);
+  const film = getFilmByID(id);
+  console.log(film);
   return (
     <main>
       <button type="button">Go back</button>
@@ -28,7 +29,7 @@ export const MoviesDetails = () => {
           </li>
         </ul>
       </div>
-      {/* <Outlet />  */}
+      <Outlet />
     </main>
   );
 };
