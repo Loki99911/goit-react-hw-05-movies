@@ -18,11 +18,16 @@ export const Home = () => {
   return (
     <main>
       <ul>
-        {films.map((film)=>
-        <li key={film.id}>
-            <img src={film.poster_path} alt={film.original_title} />  
-            {/* ХУЙНЯ ПОЛНАЯ!!!! src=`{BASE_IMG}+{film.poster_path}`*/}
-        </li>)}
+        {films.map(film => (
+          <li key={film.id}>
+            {/* <Link to="/movies/{film.id}"> */}
+              <img src={film.poster_path} alt={film.original_title} />
+              {/* ХУЙНЯ ПОЛНАЯ!!!! 
+              src=`{BASE_IMG}+{film.poster_path}`
+              <Link to="/movies/{film.id}">*/}
+            {/* </Link> */}
+          </li>
+        ))}
       </ul>
     </main>
   );
