@@ -22,8 +22,26 @@ export const getFilmByID = (id) => {
   });
 };
 
+export const getFilmCast = (id) => {
+  return fetch(
+    `${BASE_URL}/movie/${id}/credits?api_key=${API_KEY}&language=en-US`).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
+};
 
-
+export const getFilmReviewes = id => {
+  return fetch(
+    `${BASE_URL}/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
+  ).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
+};
 
 
 

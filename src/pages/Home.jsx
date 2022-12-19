@@ -1,21 +1,19 @@
 import { getPopularFilms } from 'service/reqestApi';
 import { useState, useEffect } from 'react';
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const BASE_IMG = 'https://image.tmdb.org/t/p/w500/';
 
 export const Home = () => {
   const [films, setFilms] = useState([]);
   useEffect(() => {
-    // ___________________________НЕ ПОНЯЛ ВОТ ЄТОГО((((((((
-    
     getPopularFilms().then(data => {
       return setFilms(data.results);
     });
-  },[]);
+  }, []);
 
   if (!films) {
-      return;
-    }
+    return;
+  }
   // console.log(films);
   return (
     <main>
@@ -23,7 +21,11 @@ export const Home = () => {
         {films.map(film => (
           <li key={film.id}>
             <Link to={`/movies/${film.id}`}>
-              <img src={`${BASE_IMG}${film.poster_path}`} alt={film.original_title} width="150" />
+              <img
+                src={`${BASE_IMG}${film.poster_path}`}
+                alt={film.original_title}
+                width="150"
+              />
               <p>{film.original_title}</p>
             </Link>
           </li>
@@ -32,7 +34,6 @@ export const Home = () => {
     </main>
   );
 };
-
 
 // const { useState, useRef, useLayoutEffect } = React;
 

@@ -2,13 +2,13 @@ import { useParams } from 'react-router-dom';
 import { getFilmByID } from 'service/reqestApi';
 import { Link, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+const BASE_IMG = 'https://image.tmdb.org/t/p/w500/';
 
 export const MoviesDetails = () => {
   const { id } = useParams();
   const [filmByID, setfilmByID] = useState({});
   useEffect(() => {
-    // ___________________________НЕ ПОНЯЛ ВОТ ЄТОГО((((((((
-
+ 
     getFilmByID(id).then(data => {
       return setfilmByID(data);
     });
@@ -25,7 +25,11 @@ export const MoviesDetails = () => {
         <button type="button">Go back</button>
       </Link>
       <div>
-        <img src="" alt="Film poster" />
+        <img
+          src={`${BASE_IMG}${filmByID.poster_path}`}
+          alt="Film poster"
+          width="250"
+        />
         <h1>{filmByID.original_title}</h1>
         <p>User Score: {filmByID.vote_average}</p>
         <h2> Overview</h2>
