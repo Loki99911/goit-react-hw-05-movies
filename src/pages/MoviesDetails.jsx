@@ -1,11 +1,23 @@
 import { useParams } from 'react-router-dom';
-import { getFilmByID } from 'service/reqestApi'
+import { getFilmByID } from 'service/reqestApi';
 import { Link, Outlet } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 export const MoviesDetails = () => {
   const { id } = useParams();
-  const film = getFilmByID(id);
-  console.log(film);
+  const [filmByID, setfilmByID] = useState([]);
+  console.log(id);
+  useEffect(() => {
+    // ___________________________НЕ ПОНЯЛ ВОТ ЄТОГО((((((((
+    if (!filmByID) {
+      return;
+    }
+    getFilmByID(id).then(data => {
+      return setfilmByID(data.results);
+    });
+  });
+  console.log(filmByID);
+
   return (
     <main>
       <button type="button">Go back</button>
