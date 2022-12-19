@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 export const Reviewes = () => {
   const { id } = useParams();
-  const [filmReviewes, setfilmReviewes] = useState({});
+  const [filmReviewes, setfilmReviewes] = useState([]);
   useEffect(() => {
     getFilmReviewes(id).then(data => {
       return setfilmReviewes(data.results);
@@ -16,7 +16,6 @@ export const Reviewes = () => {
   }
 
   console.log(filmReviewes);
-
   return (
     <div>
       <ul>
