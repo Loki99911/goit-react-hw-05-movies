@@ -27,7 +27,7 @@ setGanre(data.genres);
       <Link to="/">
         <button type="button">Go back</button>
       </Link>
-      <div>
+      <div style={{ display: 'flex' }}>
         <img
           src={`${BASE_IMG}${filmByID.poster_path}`}
           alt="Film poster"

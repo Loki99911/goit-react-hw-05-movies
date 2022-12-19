@@ -20,11 +20,11 @@ export const Home = () => {
       <ul>
         {films.map(film => (
           <li key={film.id}>
-            <Link to={`/movies/${film.id}`}>
+            <Link to={`/movies/${film.id}`} style={{ display: 'flex' }}>
               <img
                 src={`${BASE_IMG}${film.poster_path}`}
                 alt={film.original_title}
-                width="150"
+                width="50"
               />
               <p>{film.original_title}</p>
             </Link>
