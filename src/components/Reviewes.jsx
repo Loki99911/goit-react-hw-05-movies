@@ -18,14 +18,18 @@ export const Reviewes = () => {
   console.log(filmReviewes);
   return (
     <div>
-      <ul>
-        {filmReviewes.map(filmReview => (
-          <li key={filmReview.id}>
-            <h3>Author: {filmReview.author}</h3>
-            <p>{filmReview.content}</p>
-          </li>
-        ))}
-      </ul>
+      {filmReviewes.length === 0 ? (
+        <p>We don`t have any reviewes for this movie.</p>
+      ) : (
+        <ul>
+          {filmReviewes.map(filmReview => (
+            <li key={filmReview.id}>
+              <h3>Author: {filmReview.author}</h3>
+              <p>{filmReview.content}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

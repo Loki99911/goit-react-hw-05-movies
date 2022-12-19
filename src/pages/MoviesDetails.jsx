@@ -6,19 +6,22 @@ const BASE_IMG = 'https://image.tmdb.org/t/p/w500/';
 
 export const MoviesDetails = () => {
   const { id } = useParams();
-  const [filmByID, setfilmByID] = useState({});
+  const [filmByID, setFilmByID] = useState({});
+  const [ganre, setGanre] = useState([]);
   useEffect(() => {
  
     getFilmByID(id).then(data => {
-      return setfilmByID(data);
+setGanre(data.genres);
+      return setFilmByID(data);
     });
   }, [id]);
 
   if (!filmByID) {
     return;
   }
-  // console.log(filmByID);
-
+  // console.log(filmByID.genres);
+  // const ganre = filmByID.genres.map(genr => genr.name).join(' ');
+  // console.log(ganre.map(genr => genr.name).join(' '));
   return (
     <main>
       <Link to="/">
@@ -30,12 +33,14 @@ export const MoviesDetails = () => {
           alt="Film poster"
           width="250"
         />
-        <h1>{filmByID.original_title}</h1>
-        <p>User Score: {filmByID.vote_average}</p>
-        <h2> Overview</h2>
-        <p>{filmByID.overview}</p>
-        <h2>Genres</h2>
-        {/* {filmByID.genres.map(genr=><p>genr.name</p>).join(" ")} */}
+        <div>
+          <h1>{filmByID.original_title}</h1>
+          <p>User Score: {filmByID.vote_average}</p>
+          <h2> Overview</h2>
+          <p>{filmByID.overview}</p>
+          <h2>Genres</h2>
+          {<p>{ganre.map(genr => genr.name).join(' ')}</p>}
+        </div>
       </div>
       <div>
         <h3>Additional information</h3>
