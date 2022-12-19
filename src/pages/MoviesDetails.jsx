@@ -8,18 +8,22 @@ export const MoviesDetails = () => {
   const [filmByID, setfilmByID] = useState({});
   useEffect(() => {
     // ___________________________НЕ ПОНЯЛ ВОТ ЄТОГО((((((((
-    if (!filmByID) {
-      return;
-    }
+
     getFilmByID(id).then(data => {
       return setfilmByID(data);
     });
-  }, []);
-  console.log(filmByID);
+  }, [id]);
+
+  if (!filmByID) {
+    return;
+  }
+  // console.log(filmByID);
 
   return (
     <main>
-      <button type="button">Go back</button>
+      <Link to="/">
+        <button type="button">Go back</button>
+      </Link>
       <div>
         <img src="" alt="Film poster" />
         <h1>{filmByID.original_title}</h1>
