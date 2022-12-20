@@ -12,9 +12,9 @@ export const Position = styled.div`
 `;
 
 export const List = styled.ul`
-list-style: none;
-padding: 0;
-margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 `;
 
 export const Link = styled(NavLink)`
@@ -32,7 +32,7 @@ export const Link = styled(NavLink)`
 `;
 
 export const Item = styled.li`
-display: inline-block;
+  display: inline-block;
   text-decoration: none;
   color: black;
   font-weight: 500;
@@ -50,4 +50,3 @@ export const Btn = styled.button`
   font-weight: 500;
   color: white;
 `;
-

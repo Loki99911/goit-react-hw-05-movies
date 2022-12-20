@@ -20,8 +20,7 @@ const MoviesDetails = () => {
   const location = useLocation();
 
   useEffect(() => {
- 
-    getFilmByID(id).then(data => {
+     getFilmByID(id).then(data => {
 setGanre(data.genres);
       return setFilmByID(data);
     });

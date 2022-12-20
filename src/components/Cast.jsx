@@ -2,15 +2,18 @@ import { useParams } from 'react-router-dom';
 import { getFilmCast } from 'service/reqestApi';
 import { useState, useEffect } from 'react';
 const BASE_IMG = 'https://image.tmdb.org/t/p/w500/';
-const defaultImg = 'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png';
+const anonimus =
+  'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png';
 
 export const Cast = () => {
   const { id } = useParams();
   const [filmCast, setfilmCast] = useState([]);
   useEffect(() => {
-    getFilmCast(id).then(data => {
-      return setfilmCast(data.cast);
-    });
+    getFilmCast(id)
+      .then(data => {
+        return setfilmCast(data.cast);
+      })
+      .catch(console.log('errroe'));
   }, [id]);
 
   if (!filmCast) {
@@ -27,8 +30,8 @@ export const Cast = () => {
             <img
               src={
                 filmActior.profile_path
-                  ? `${defaultImg}`
-                  : `${BASE_IMG}${filmActior.profile_path}`
+                  ? `${BASE_URL}${filmActior.profile_path}`
+                  : anonimus
               }
               alt={filmActior.name}
               width="150"
