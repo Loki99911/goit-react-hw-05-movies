@@ -1,14 +1,14 @@
 import { useParams } from 'react-router-dom';
 import { getFilmByID } from 'service/reqestApi';
 import { Outlet, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import {
   Container,
   List,
-  Link,
+  Linka,
+  LinkBack,
   Item,
   Img,
-  Btn,
   Position,
 } from './MoviesDetails.styled';
 const BASE_IMG = 'https://image.tmdb.org/t/p/w500/';
@@ -32,9 +32,7 @@ const MoviesDetails = () => {
 
   return (
     <Container>
-      <Link to={location.state?.from ?? '/'}>
-        <Btn type="button">Go back</Btn>
-      </Link>
+      <LinkBack to={location.state?.from ?? '/'}>Go back</LinkBack>
       <Position>
         <Img
           src={`${BASE_IMG}${filmByID.poster_path}`}
@@ -54,14 +52,20 @@ const MoviesDetails = () => {
         <h3>Additional information</h3>
         <List>
           <Item>
-            <Link to="cast">Cast</Link>
+            <Linka to="cast" state={location.state}>
+              Cast
+            </Linka>
           </Item>
           <Item>
-            <Link to="reviewes">Reviewes</Link>
+            <Linka to="reviewes" state={location.state}>
+              Reviewes
+            </Linka>
           </Item>
         </List>
       </div>
-      <Outlet />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet />
+      </Suspense>
     </Container>
   );
 };

@@ -1,7 +1,7 @@
 import { useSearchParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getFilmByQuery } from 'service/reqestApi';
-import { Container, List, Link, Item, Img, Text, Input,Btn } from './Movies.styled';
+import { Container, List, Link, Item, Img, Text, Input, Btn } from './Movies.styled';
 
 const BASE_IMG = 'https://image.tmdb.org/t/p/w500/';
 

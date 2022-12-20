@@ -3,6 +3,7 @@ import { getFilmCast } from 'service/reqestApi';
 import { useState, useEffect } from 'react';
 import { List } from './Cast.styled';
 const BASE_IMG = 'https://image.tmdb.org/t/p/w500/';
+const ANONIM_IMG = 'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png'
 
 const Cast = () => {
   const { id } = useParams();
@@ -25,7 +26,11 @@ const Cast = () => {
         {filmCast.map(filmActior => (
           <li key={filmActior.id}>
             <img
-              src={`${BASE_IMG}${filmActior.profile_path}`} //null бывает!!
+              src={
+                !filmActior.profile_path
+                  ? ANONIM_IMG
+                  : `${BASE_IMG}${filmActior.profile_path}`
+              }
               alt={filmActior.name}
               width="150"
             />
