@@ -23,7 +23,6 @@ const Movies = () => {
       return;
     }
     getFilmByQuery(query).then(data => {
-      console.log(data);
       return setFilms(data.results);
     });
   }, [query]);

@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { getFilmReviewes } from 'service/reqestApi';
 import { useState, useEffect } from 'react';
 import { List } from './Reviewes.styled';
+
 const Reviewes = () => {
   const { id } = useParams();
   const [filmReviewes, setfilmReviewes] = useState([]);
@@ -15,7 +16,6 @@ const Reviewes = () => {
     return;
   }
 
-  // console.log(filmReviewes);
   return (
     <div>
       {filmReviewes.length === 0 ? (

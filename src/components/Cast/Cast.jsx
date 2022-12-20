@@ -18,8 +18,6 @@ const Cast = () => {
     return;
   }
 
-  // console.log(filmCast);
-
   return (
     <div>
       <List>
