@@ -10,8 +10,7 @@ const Home = () => {
     getPopularFilms()
       .then(data => {
         return setFilms(data.results);
-      })
-      .catch(console.log('catch-Home'));;
+      });
   }, []);
 
   if (!films) {
