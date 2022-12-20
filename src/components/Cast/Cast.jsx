@@ -11,7 +11,7 @@ const Cast = () => {
   useEffect(() => {
     getFilmCast(id).then(data => {
       return setfilmCast(data.cast);
-    });
+    }).catch(console.log("catch-Cast"));
   }, [id]);
 
   if (!filmCast) {

@@ -7,9 +7,11 @@ const Home = () => {
   const [films, setFilms] = useState([]);
 
   useEffect(() => {
-    getPopularFilms().then(data => {
-      return setFilms(data.results);
-    });
+    getPopularFilms()
+      .then(data => {
+        return setFilms(data.results);
+      })
+      .catch(console.log('catch-Home'));;
   }, []);
 
   if (!films) {
@@ -18,6 +20,7 @@ const Home = () => {
 
   return (
     <Container>
+      <h1>Trending today</h1>
       <List>
         {films.map(film => (
           <Item key={film.id}>

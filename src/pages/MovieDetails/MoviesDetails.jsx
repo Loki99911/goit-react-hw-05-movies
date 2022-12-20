@@ -20,10 +20,12 @@ const MoviesDetails = () => {
   const location = useLocation();
 
   useEffect(() => {
-    getFilmByID(id).then(data => {
-      setGanre(data.genres);
-      return setFilmByID(data);
-    });
+    getFilmByID(id)
+      .then(data => {
+        setGanre(data.genres);
+        return setFilmByID(data);
+      })
+      .catch(console.log('catch-MD'));;
   }, [id]);
 
   if (!filmByID) {

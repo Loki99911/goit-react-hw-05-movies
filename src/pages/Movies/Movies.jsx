@@ -22,9 +22,11 @@ const Movies = () => {
     if (!query) {
       return;
     }
-    getFilmByQuery(query).then(data => {
-      return setFilms(data.results);
-    });
+    getFilmByQuery(query)
+      .then(data => {
+        return setFilms(data.results);
+      })
+      .catch(console.log('catch-M'));;
   }, [query]);
 
   if (!films) {
