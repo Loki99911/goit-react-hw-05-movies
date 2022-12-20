@@ -15,7 +15,7 @@ const Reviewes = () => {
     return;
   }
 
-  console.log(filmReviewes);
+  // console.log(filmReviewes);
   return (
     <div>
       {filmReviewes.length === 0 ? (

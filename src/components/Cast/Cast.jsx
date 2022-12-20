@@ -17,7 +17,7 @@ const Cast = () => {
     return;
   }
 
-  console.log(filmCast);
+  // console.log(filmCast);
 
   return (
     <div>

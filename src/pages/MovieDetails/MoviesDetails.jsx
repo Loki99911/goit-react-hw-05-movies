@@ -20,8 +20,8 @@ const MoviesDetails = () => {
   const location = useLocation();
 
   useEffect(() => {
-     getFilmByID(id).then(data => {
-setGanre(data.genres);
+    getFilmByID(id).then(data => {
+      setGanre(data.genres);
       return setFilmByID(data);
     });
   }, [id]);
@@ -29,7 +29,7 @@ setGanre(data.genres);
   if (!filmByID) {
     return;
   }
-  
+
   return (
     <Container>
       <Link to={location.state?.from ?? '/'}>
@@ -65,6 +65,5 @@ setGanre(data.genres);
     </Container>
   );
 };
-
 
 export default MoviesDetails;
