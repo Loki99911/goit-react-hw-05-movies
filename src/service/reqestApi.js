@@ -43,31 +43,17 @@ export const getFilmReviewes = id => {
   });
 };
 
+export const getFilmByQuery = query => {
+  return fetch(
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}&language=en-US&page=1&include_adult=false`
+  ).then(response => {
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return response.json();
+  });
+};
 
 
 
 
-
-
-
-// .then(data => {
-//       return data;
-// });
-    
-
-
-
-
-// fetch('https://jsonplaceholder.typicode.com/users')
-//   .then(response => {
-//     if (!response.ok) {
-//       throw new Error(response.status);
-//     }
-//     return response.json();
-//   })
-//   .then(data => {
-//     // Data handling
-//   })
-//   .catch(error => {
-//     // Error handling
-//   });

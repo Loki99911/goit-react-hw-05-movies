@@ -1,4 +1,4 @@
-export const Error404 = () => {
+const Error404 = () => {
   return (
     <main style={{ textAlign: 'center' }}>
       <b style={{ fontSize: 64, color:"red", }}>404</b>
@@ -6,3 +6,5 @@ export const Error404 = () => {
     </main>
   );
 };
+
+export default Error404;

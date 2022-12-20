@@ -23,13 +23,13 @@ export const Header = styled.header`
 
 export const Link = styled(NavLink)`
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 5px;
   text-decoration: none;
   color: black;
   font-weight: 500;
-
   &.active {
     color: white;
-    background-color: orangered;
+    background-color: violet;
   }
 `;
+
